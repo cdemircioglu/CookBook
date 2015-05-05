@@ -1,0 +1,36 @@
+ {
+    "name": "HRPipeline",
+    "properties":
+    {   
+        "description" : "Copy HR data from a blob to another blob",
+        "activities":   
+        [
+            {
+                "name": "CopyFromBlobToBlob",
+                "description": "Push data between blobs",
+                "type": "CopyActivity",
+                "inputs": [ {"name": "HRDataTable"} ],
+                "outputs": [ {"name": "HRDataTableOutput"} ],     
+                "transformation":
+                {
+                    "source":
+                    {                               
+                        "type": "BlobSource"
+                    },
+                    "sink":
+                    {
+                        "type": "BlobSink"
+                    }
+                },
+                "Policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "style": "StartOfInterval",
+                    "retry": 0,
+                    "timeout": "01:00:00"
+                }       
+            }
+        ]
+    }
+} 

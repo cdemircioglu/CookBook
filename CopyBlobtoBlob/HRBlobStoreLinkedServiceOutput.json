@@ -1,0 +1,8 @@
+{ 
+     "name": "HRBlobStoreLinkedServiceOutput", 
+     "properties": 
+     { 
+         "type": "AzureStorageLinkedService", 
+         "connectionString": "DefaultEndpointsProtocol=https;AccountName=XXXXXXXXXXXXX;AccountKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+     } 
+} 
