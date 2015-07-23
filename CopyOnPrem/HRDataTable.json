@@ -1,0 +1,35 @@
+{ 
+    "name": "HRDataTable", 
+    "properties": 
+    { 
+        "structure":   
+        [  
+			{ "name": "HostName", "type": "String"},
+			{ "name": "Tier", "type": "String"},
+			{ "name": "Marker", "type": "String"},
+			{ "name": "WeekNo", "type": "String"},
+			{ "name": "URLLength", "type": "String"},
+			{ "name": "ShortestURL", "type": "String"},
+			{ "name": "CreatedDate", "type": "String"},
+			{ "name": "ID", "type": "String"},
+			{ "name": "IPAddress", "type": "String"}
+		], 
+         "location":  
+         { 
+             "type": "OnPremisesSqlServerTableLocation", 
+			 "tableName": "IPAnalysisShortestURL",			 
+             "linkedServiceName": "HROnPremLinkedService" 
+         }, 
+		"availability":
+		{
+			"interval": 1, 
+			"frequency": "Hour", 
+			"waitOnExternal":
+			{
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 1
+            }
+		} 
+	}
+} 

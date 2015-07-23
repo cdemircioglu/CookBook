@@ -1,0 +1,9 @@
+{
+    "Name": "HROnPremLinkedService",
+    "Properties":
+    {
+        "type": "OnPremisesSqlLinkedService",
+        "connectionString": "Data Source=XXXX;Initial Catalog=COSMOS;Integrated Security=False;User ID=XXXXX;Password=XXXXX;",
+        "gatewayName": "CemLocalhost"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "name": "HRPipelineCopy",
+    "properties":
+    {
+        "description" : "Runs a pigql stores the result set in a blob",
+        "activities":
+        [
+            {
+                "name": "Copy Pig Data",
+                "description": "Copies pig query data",
+                "type": "CopyActivity",
+                "inputs": [{"name": "HRDataTableOutput"}],
+                "outputs": [ {"name": "HRDataTableFinalOutput"} ],               
+                "transformation":
+                {
+					"source":
+					{
+						"type": "BlobSource"
+					},
+                    "sink":
+                    {
+                        "type": "BlobSink",
+						blobWriterAddHeader: true
+                    }								
+                },
+                "policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "01:00:00"
+                }
+            }
+        ]
+    }
+}

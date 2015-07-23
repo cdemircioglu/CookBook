@@ -1,0 +1,60 @@
+{ 
+    "name": "HRDataTableFinalOutput", 
+    "properties": 
+    { 
+        "structure":   
+        [  
+			{ "name": "MANDT", "type": "String"}, 
+			{ "name": "PERNR", "type": "String"}, 
+			{ "name": "SUBTY", "type": "String"}, 
+			{ "name": "OBJPS", "type": "String"}, 
+			{ "name": "SPRPS", "type": "String"}, 
+			{ "name": "ENDDA", "type": "String"}, 
+			{ "name": "BEGDA", "type": "String"}, 
+			{ "name": "SEQNR", "type": "String"}, 
+			{ "name": "AEDTM", "type": "String"}, 
+			{ "name": "UNAME", "type": "String"}, 
+			{ "name": "DAR01", "type": "String"}, 
+			{ "name": "DAT01", "type": "String"}, 
+			{ "name": "DAR02", "type": "String"}, 
+			{ "name": "DAT02", "type": "String"}, 
+			{ "name": "DAR03", "type": "String"}, 
+			{ "name": "DAT03", "type": "String"}, 
+			{ "name": "DAR04", "type": "String"}, 
+			{ "name": "DAT04", "type": "String"}, 
+			{ "name": "DAR05", "type": "String"}, 
+			{ "name": "DAT05", "type": "String"}, 
+			{ "name": "DAR06", "type": "String"}, 
+			{ "name": "DAT06", "type": "String"}, 
+			{ "name": "DAR07", "type": "String"}, 
+			{ "name": "DAT07", "type": "String"}, 
+			{ "name": "DAR08", "type": "String"}, 
+			{ "name": "DAT08", "type": "String"}, 
+			{ "name": "DAR09", "type": "String"}, 
+			{ "name": "DAT09", "type": "String"}, 
+			{ "name": "DAR10", "type": "String"}, 
+			{ "name": "DAT10", "type": "String"}, 
+			{ "name": "DAR11", "type": "String"}, 
+			{ "name": "DAT11", "type": "String"}, 
+			{ "name": "DAR12", "type": "String"}, 
+			{ "name": "DAT12", "type": "String"}
+		], 
+         "location":  
+         { 
+             "type": "AzureBlobLocation", 
+             "folderPath": "test/", 
+			 "fileName": "HRDataTableFinalOutput.csv",
+             "format": 
+             { 
+                 "type": "TextFormat", 
+                 "columnDelimiter": ","			
+             }, 
+             "linkedServiceName": "HRBlobStoreLinkedService" 
+         }, 
+		 "availability": 
+         {
+             "frequency": "hour",
+             "interval": 1
+         }
+     } 
+} 

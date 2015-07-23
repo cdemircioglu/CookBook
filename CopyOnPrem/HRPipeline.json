@@ -1,0 +1,36 @@
+{
+    "name": "HRPipeline",
+    "properties":
+    {
+        "description" : "Pulls data from on prem and stores the result set in a blob",
+        "activities":
+        [
+            {
+                "name": "RunSQLQuery",
+                "description": "Runs a SQL query",
+				"type": "CopyActivity",
+                "inputs": [{"name": "HRDataTable"}],
+                "outputs": [ {"name": "HRDataBlobOutput"} ],
+                "transformation":
+                {
+					"source": 
+					{
+						"type": "SqlSource",
+						"SqlReaderQuery": "SELECT TOP 1000 [HostName],[Tier],[Marker],[WeekNo],[URLLength],[ShortestURL],[CreatedDate],[ID],[IPAddress] FROM [COSMOS].[dbo].[IPAnalysisShortestURL] WITH (NOLOCK)"
+					},
+					"sink": 
+					{
+						"type": "BlobSink"
+					}
+                },
+                "policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "01:00:00"
+                }
+            }
+        ]
+    }
+}
