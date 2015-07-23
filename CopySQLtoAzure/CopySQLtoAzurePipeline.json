@@ -1,0 +1,36 @@
+{
+    "name": "CopySQLtoAzurePipeline",
+    "properties":
+    {
+        "description" : "Pulls data from on-prem and stores it at Azure SQL",
+        "activities":
+        [
+            {
+                "name": "RunSQLQuery",
+                "description": "Runs a SQL query",
+				"type": "CopyActivity",
+                "inputs": [{"name": "LocalStockTable"}],
+                "outputs": [ {"name": "AzureSQLStockTable"} ],
+                "transformation":
+                {
+					"source": 
+					{
+						"type": "SqlSource",
+						"SqlReaderQuery": "SELECT TOP 1000 * FROM [dbo].[STOCKPRICE]"
+					},
+					"sink": 
+					{
+						"type": "AzureTableSink"
+					}
+                },
+                "policy":
+                {
+                    "concurrency": 1,
+                    "executionPriorityOrder": "NewestFirst",
+                    "retry": 1,
+                    "timeout": "01:00:00"
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "connectionString": "Data Source=tcp:cemsqlserver.database.windows.net,1433;Initial Catalog=AzureDB;Integrated Security=False;User ID=cem@cemsqlserver;Password=BagfaCe2;Connect Timeout=30;Encrypt=True",
+        "hubName": "pocsqltoazuresql_hub",
+        "type": "AzureSqlLinkedService",
+        "errorMessage": "Failed to connect to Linked service. ErrorCode:-2146232060."
+    }
+}

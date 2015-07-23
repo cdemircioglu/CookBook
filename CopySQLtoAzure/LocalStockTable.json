@@ -1,0 +1,25 @@
+{
+    "name": "LocalStockTable",
+    "properties": {
+        "structure": [
+			{ "name": "DATE", "type": "String"},
+			{ "name": "OPEN", "type": "String"},
+			{ "name": "HIGH", "type": "String"},
+			{ "name": "LOW", "type": "String"},
+			{ "name": "CLOSE", "type": "String"},
+			{ "name": "VOLUME", "type": "String"},
+			{ "name": "ADJ_CLOSE", "type": "String"}
+        ],
+        "location": {
+            "type": "OnPremisesSqlServerTableLocation",
+            "tableName": "STOCKPRICE",
+            "linkedServiceName": "LocalSQLOnPremLinkedService"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": "1",
+            "waitOnExternal": {}
+        },
+        "policy": {}
+    }
+}
